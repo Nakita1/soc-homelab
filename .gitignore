@@ -1,16 +1,34 @@
-# Ignore Play! working directory #
-bin/
-/db
-.eclipse
-/lib/
-/logs/
-/modules
-/project/project
-/project/target
-/target
-tmp/
-test-result
-server.pid
-*.eml
-/dist/
-.cache
+# Virtual machine files
+*.vdi
+*.vmdk
+*.vbox
+*.vbox-prev
+*.vmem
+*.nvram
+Snapshots/
+
+# Windows artifacts
+Thumbs.db
+Desktop.ini
+*.lnk
+
+# Event logs and dumps
+*.evtx
+*.etl
+*.dmp
+*.log
+
+# Archives and binaries
+*.zip
+*.iso
+*.exe
+*.msi
+
+# OS and editor temp files
+*.tmp
+*.swp
+*.bak
+*.old
+
+# PowerShell history
+ConsoleHost_history.txt
