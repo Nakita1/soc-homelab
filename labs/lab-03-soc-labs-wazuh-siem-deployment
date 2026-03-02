@@ -47,24 +47,24 @@ Both virtual machines were deployed in VMware and configured within a private la
 
 Updated system:
 
-```bash
+### bash
 sudo apt update && sudo apt upgrade -y
-```
+
 
 Installed Wazuh (all-in-one deployment):
 
-```bash
+### bash
 curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
 sudo bash wazuh-install.sh -a
-```
+
 
 Verified core services:
 
-```bash
+### bash
 sudo systemctl status wazuh-manager
 sudo systemctl status wazuh-indexer
 sudo systemctl status wazuh-dashboard
-```
+
 
 ---
 
@@ -72,7 +72,7 @@ sudo systemctl status wazuh-dashboard
 
 Installed Wazuh agent on Linux endpoint:
 
-```bash
+bash
 curl -L -O https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_<version>_amd64.deb
 sudo WAZUH_MANAGER='<SIEM_SERVER_IP>' dpkg -i wazuh-agent_<version>_amd64.deb
 sudo systemctl enable wazuh-agent
