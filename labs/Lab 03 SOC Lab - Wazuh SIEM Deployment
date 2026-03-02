@@ -1,0 +1,205 @@
+# Lab 03 SOC Lab – Wazuh SIEM Deployment
+
+## Overview
+
+This project documents the deployment and validation of a fully functional Security Information and Event Management (SIEM) solution using **Wazuh** in a virtualized lab environment.
+
+The objective was to build a foundational SOC monitoring stack capable of:
+
+- Log ingestion
+- Endpoint monitoring
+- File Integrity Monitoring (FIM)
+- Port activity detection
+- Compliance auditing
+- MITRE ATT&CK mapping
+- Real-world troubleshooting and recovery
+
+All infrastructure was deployed in an isolated lab network.
+
+---
+
+## Lab Architecture
+
+| System | Role |
+|--------|------|
+| Ubuntu Server 22.04 LTS | Wazuh Manager, Indexer (OpenSearch), Dashboard |
+| Kali Linux | Monitored Endpoint (Wazuh Agent) |
+
+Both virtual machines were deployed in VMware and configured within a private lab network segment.
+
+---
+
+## Technologies Used
+
+- Wazuh v4.7.x
+- OpenSearch
+- Ubuntu Server 22.04 LTS
+- Kali Linux (latest stable)
+- Nmap (attack simulation)
+- OpenSSH
+- Linux File Integrity Monitoring (syscheck module)
+
+---
+
+## 🚀 Deployment Process
+
+### Wazuh Server Installation
+
+Updated system:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+Installed Wazuh (all-in-one deployment):
+
+```bash
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
+sudo bash wazuh-install.sh -a
+```
+
+Verified core services:
+
+```bash
+sudo systemctl status wazuh-manager
+sudo systemctl status wazuh-indexer
+sudo systemctl status wazuh-dashboard
+```
+
+---
+
+### Agent Deployment (Endpoint Integration)
+
+Installed Wazuh agent on Linux endpoint:
+
+```bash
+curl -L -O https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_<version>_amd64.deb
+sudo WAZUH_MANAGER='<SIEM_SERVER_IP>' dpkg -i wazuh-agent_<version>_amd64.deb
+sudo systemctl enable wazuh-agent
+sudo systemctl start wazuh-agent
+```
+
+Registered agent using key-based authentication via `manage_agents`.
+
+---
+
+## Detection Validation
+
+### 1. Port Scan Simulation (Reconnaissance)
+
+Simulated TCP SYN scan:
+
+```bash
+nmap -sS <SIEM_SERVER_IP>
+```
+
+Wazuh generated alert:
+
+- **Rule ID:** 533  
+- **Description:** Listened ports status (netstat) changed  
+- **Severity Level:** 7  
+
+This demonstrates host-based detection of reconnaissance-related activity.
+
+---
+
+### 2. File Integrity Monitoring (FIM)
+
+Created and modified monitored file:
+
+```bash
+sudo touch /etc/soclab_test_file
+echo "lab" | sudo tee -a /etc/soclab_test_file
+```
+
+Wazuh detected integrity changes under monitored directories.
+
+---
+
+### 3. Security Configuration Assessment (SCA)
+
+Wazuh SCA module generated compliance findings including:
+
+- Password policy validation
+- Hashing algorithm verification
+- Audit service checks
+- System hardening visibility
+
+Compliance dashboard and MITRE ATT&CK mapping confirmed operational monitoring capabilities.
+
+---
+
+## Troubleshooting & Recovery
+
+During deployment, the following real-world issues were encountered and resolved:
+
+- Unsupported OS version → Rebuilt with supported LTS release
+- Duplicate agent key conflict → Removed stale keys and re-registered agent
+- Power interruption → Restarted indexer and validated service health
+- FIM timing delays → Enabled real-time monitoring
+
+These scenarios reflect practical SOC engineering problem-solving.
+
+---
+
+## Current Capabilities
+
+- Active endpoint monitoring
+- Host-based anomaly detection
+- Port state change detection
+- File Integrity Monitoring
+- Compliance auditing (SCA)
+- MITRE ATT&CK mapping
+- Centralized alert visualization
+
+---
+
+## Next Steps
+
+Planned improvements:
+
+- System hardening
+- Detection rule tuning
+- Network IDS integration (Suricata)
+- Windows endpoint with Sysmon
+- Case management integration
+- Threat intelligence integration
+
+---
+
+## Skills Demonstrated
+
+- SIEM deployment
+- Endpoint integration
+- Detection validation
+- Log analysis
+- Attack simulation
+- Incident troubleshooting
+- Service recovery
+
+---
+
+## Screenshots
+
+Screenshots included in this repository demonstrate:
+
+- Active agent registration
+- Security alert generation
+- Port scan detection
+- Compliance dashboard
+- MITRE ATT&CK mapping
+
+(All IP addresses and sensitive identifiers have been redacted.)
+
+---
+
+## Project Status
+
+✅ Functional SIEM  
+✅ Active endpoint  
+✅ Detection validated  
+🚧 Hardening and advanced tuning in progress  
+
+---
+
+This lab represents a foundational SOC monitoring environment built from scratch and validated through simulated attack activity in an isolated virtual environment.
