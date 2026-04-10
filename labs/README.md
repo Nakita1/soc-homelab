@@ -2,7 +2,7 @@
 
 This directory contains hands-on security labs designed to demonstrate SOC analyst and Blue Team skills through controlled, isolated simulations.
 
-Each lab focuses on **behavioral analysis**, **endpoint telemetry**, and **defensive investigation techniques** using native Windows tooling and Sysmon. No live malware is used; all activity is generated safely to emulate attacker tradecraft.
+Each lab focuses on behavioral analysis, endpoint telemetry, and defensive investigation techniques using native Windows tooling and Sysmon. No live malware is used; all activity is generated safely to emulate attacker tradecraft.
 
 ---
 
@@ -36,7 +36,7 @@ Each lab focuses on **behavioral analysis**, **endpoint telemetry**, and **defen
 
 ## Disclaimer
 
-These labs are for **defensive security education only**.  
+These labs are for defensive security education only.  
 They are designed to help understand attacker behavior, detection opportunities, and SOC workflows in a controlled environment.
 
 No malicious payloads or live malware samples are included.
