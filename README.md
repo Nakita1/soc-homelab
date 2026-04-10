@@ -4,20 +4,20 @@ VirtualBox-based SOC lab featuring an isolated Windows 10 endpoint instrumented 
 # SOC & Blue Team Home Lab
 
 ## Overview
-This repository documents the creation of an **isolated SOC and Blue Team home lab** designed to generate, observe, and analyze endpoint telemetry for detection engineering and incident response practice.
+This repository documents the creation of an isolated SOC and Blue Team home lab designed to generate, observe, and analyze endpoint telemetry for detection engineering and incident response practice.
 
-The lab is built with a strong emphasis on **safety, isolation, and defensive security principles**. No live malware samples are included, and all activity is performed in a controlled virtual environment.
+The lab is built with a strong emphasis on safety, isolation, and defensive security principles. No live malware samples are included, and all activity is performed in a controlled virtual environment.
 
 ---
 
 ## Objectives
-- Build a **safe and isolated security lab** using virtualization
-- Generate **high-fidelity endpoint telemetry** with Sysmon
-- Practice **SOC analyst workflows**, including:
+- Build a safe and isolated security lab using virtualization
+- Generate high-fidelity endpoint telemetry with Sysmon
+- Practice SOC analyst workflows, including:
   - Process execution analysis
   - DNS activity review
   - Identifying suspicious behavior
-- Document setup decisions and validation steps in a **repeatable, professional manner**
+- Document setup decisions and validation steps in a repeatable, professional manner
 
 ---
 
@@ -41,16 +41,16 @@ Additional labs (OSINT, governance/compliance) are maintained separately and are
 
 ## Network Design & Safety
 
-The lab is intentionally **isolated by design** to prevent unintended exposure.
+The lab is intentionally isolated to prevent unintended exposure.
 
 - **Host-only networking**
   - No internet access during normal operation
   - VM-to-VM communication only
-- **No shared folders**
-- **Clipboard and drag-and-drop disabled**
-- **No USB passthrough**
+- No shared folders
+- Clipboard and drag-and-drop disabled
+- No USB passthrough
 
-Internet access is enabled **temporarily and deliberately** only to download trusted tools, then immediately removed.
+Internet access is enabled temporarily and deliberately only to download trusted tools, then immediately removed.
 
 This approach reflects real-world defensive lab best practices.
 
@@ -71,7 +71,7 @@ This approach reflects real-world defensive lab best practices.
 - **Event ID 22** – DNS Queries  
 - File, registry, and persistence-related activity
 
-Events are reviewed locally via **Event Viewer** and will later be forwarded to a SIEM for centralized analysis.
+Events are reviewed locally via Event Viewer and will later be forwarded to a SIEM for centralized analysis.
 
 ---
 
