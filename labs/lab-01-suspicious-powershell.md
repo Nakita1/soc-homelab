@@ -3,7 +3,7 @@
 ## Overview
 This lab demonstrates how suspicious PowerShell execution generates endpoint telemetry and how a SOC analyst would identify and triage that activity using Sysmon.
 
-The scenario simulates **attacker tradecraft**, not malware execution. All activity is performed safely within an isolated lab environment.
+The scenario simulates attacker tradecraft, not malware execution. All activity is performed safely within an isolated lab environment.
 
 ---
 
@@ -27,7 +27,7 @@ The scenario simulates **attacker tradecraft**, not malware execution. All activ
 ## Scenario Description
 PowerShell is frequently abused by attackers because it is a native Windows tool capable of executing commands, scripts, and payloads without requiring additional binaries.
 
-In this lab, PowerShell is executed with flags commonly associated with **defense evasion and stealth**, allowing us to observe how this behavior appears in endpoint telemetry.
+In this lab, PowerShell is executed with flags commonly associated with defense evasion and stealth, allowing us to observe how this behavior appears in endpoint telemetry.
 
 ---
 
@@ -35,7 +35,7 @@ In this lab, PowerShell is executed with flags commonly associated with **defens
 
 ### Action Performed
 PowerShell was executed with the following command:
-- powershell -nop -w hidden -c "Get-Process"
+- powershell -nop -w hidden -c "Get-Process."
 <img width="906" height="176" alt="lab01-powershell-command" src="https://github.com/user-attachments/assets/fc24c4cd-a999-4668-948c-514bb174b4ed" />
 
 ## Step 2: Telemetry Identification
@@ -95,7 +95,7 @@ Legitimate scenarios may include endpoint management tools, IT automation script
 This lab demonstrates how attacker-like behavior can be generated safely and identified through endpoint telemetry. It reinforces the importance of analyzing behavior, not just payloads, and highlights how attackers can abuse legitimate tools.
 
 ## MITRE ATT&CK mapping
-- T1059.001 - Command and Scripting Interpreter: Powershell
+- T1059.001 - Command and Scripting Interpreter: PowerShell
 
 
 
