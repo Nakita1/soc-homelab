@@ -1,34 +1,140 @@
+# =========================
 # Virtual machine files
+# =========================
 *.vdi
 *.vmdk
 *.vbox
 *.vbox-prev
 *.vmem
 *.nvram
+*.ova
+*.ovf
+*.qcow2
+*.img
+*.iso
 Snapshots/
+VirtualBox VMs/
 
+# =========================
+# VirtualBox logs
+# =========================
+VBox.log
+VBox.log.*
+*.vbox-tmp
+
+# =========================
 # Windows artifacts
+# =========================
 Thumbs.db
 Desktop.ini
+desktop.ini
 *.lnk
 
-# Event logs and dumps
+# =========================
+# Event logs, dumps, and raw logs
+# =========================
 *.evtx
 *.etl
 *.dmp
 *.log
+logs/
+raw_logs/
+events/
+exports/
+splunk_exports/
 
+# =========================
+# Packet captures
+# =========================
+*.pcap
+*.pcapng
+*.cap
+
+# =========================
+# Screenshots and images
+# =========================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+screenshots/
+images/
+
+# =========================
 # Archives and binaries
+# =========================
 *.zip
-*.iso
+*.7z
+*.rar
+*.tar
+*.gz
 *.exe
 *.msi
+*.deb
 
+# =========================
+# Secrets, credentials, and keys
+# =========================
+.env
+.env.*
+*.env
+secrets.*
+credentials.*
+passwords.*
+tokens.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.csr
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+known_hosts
+authorized_keys
+
+# =========================
+# Splunk sensitive files
+# =========================
+splunk.secret
+passwd
+authentication.conf
+server.conf
+web.conf
+inputs.conf
+outputs.conf
+deploymentclient.conf
+user-seed.conf
+*.conf.local
+*.conf.backup
+*.conf.bak
+
+# =========================
+# Splunk generated/local data
+# =========================
+fishbucket/
+dispatch/
+var/lib/splunk/
+var/log/splunk/
+
+# =========================
 # OS and editor temp files
+# =========================
 *.tmp
 *.swp
+*.swo
 *.bak
 *.old
+*.backup
+.DS_Store
+.vscode/
+.idea/
 
+# =========================
 # PowerShell history
+# =========================
 ConsoleHost_history.txt
